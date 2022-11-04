@@ -1,0 +1,8 @@
+{
+  "created_successfully" : "تم إضافة الآية بنجاح",
+  "error_not_created" : "حدث خطأ : لم يتم إضافة الآية !",
+  "updated_successfully" : "تم تحديث الآية بنجاح",
+  "get_all_successfully" : "تم العثور على كل الآيات",
+  "found_one_successfully" : "تم العثور على الآية",
+  "deleted_successfully" : "تم حذف الآية بنجاح"
+}

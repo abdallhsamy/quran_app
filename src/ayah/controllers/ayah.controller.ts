@@ -2,6 +2,7 @@ import {Body, Controller, Delete, Get, HttpStatus, Param, Post, Put, Res} from "
 import {CreateAyahDto} from "../dto/create-ayah.dto";
 import {UpdateAyahDto} from "../dto/update-ayah.dto";
 import {AyahService} from "../services/ayah.service";
+import {I18n, I18nContext} from "nestjs-i18n";
 
 @Controller('ayah')
 export class AyahController
@@ -9,29 +10,29 @@ export class AyahController
     constructor(private readonly ayahService: AyahService) { }
 
     @Post()
-    async create(@Res() response, @Body() createAyahDto: CreateAyahDto) {
+    async create(@Res() response, @Body() createAyahDto: CreateAyahDto, @I18n() i18n: I18nContext) {
         try {
             const ayah = await this.ayahService.create(createAyahDto);
             return response.status(HttpStatus.CREATED).json({
-                message: "Ayah has been created successfully",
+                message: await i18n.t('ayah.created_successfully'),
                 data: ayah
             });
         } catch (err) {
             return response.status(HttpStatus.BAD_REQUEST).json({
                 statusCode: 400,
-                message: 'Error: Ayah not created!',
-                error: 'Bad Request'
+                message: await i18n.t('ayah.error_not_created'),
+                error: await i18n.t('general.bad_request')
             });
         }
     }
 
     @Put('/:id')
-    async updateAyah(@Res() response,@Param('id') ayahId: string, @Body() updateAyahDto: UpdateAyahDto) {
+    async updateAyah(@Res() response,@Param('id') ayahId: string, @Body() updateAyahDto: UpdateAyahDto, @I18n() i18n: I18nContext) {
         try {
             const ayah = await this.ayahService.updateOne(ayahId, updateAyahDto);
 
             return response.status(HttpStatus.OK).json({
-                message: 'Ayah has been successfully updated',
+                message: await i18n.t('ayah.updated_successfully'),
                 data: ayah
             });
         } catch (err) {
@@ -40,12 +41,12 @@ export class AyahController
     }
 
     @Get()
-    async getAll(@Res() response) {
+    async getAll(@Res() response, @I18n() i18n: I18nContext) {
         try {
             const ayah = await this.ayahService.getAll();
 
             return response.status(HttpStatus.OK).json({
-                message: 'All ayahs data found successfully',
+                message: await i18n.t('ayah.get_all_successfully'),
                 data: ayah
             });
         } catch (err) {
@@ -54,12 +55,12 @@ export class AyahController
     }
 
     @Get('/:id')
-    async getOne(@Res() response, @Param('id') id: string) {
+    async getOne(@Res() response, @Param('id') id: string, @I18n() i18n: I18nContext) {
         try {
             const ayah = await this.ayahService.getOne(id);
 
             return response.status(HttpStatus.OK).json({
-                message: 'Ayah found successfully',
+                message: await i18n.t('ayah.found_one_successfully'),
                 data: ayah
             });
         } catch (err) {
@@ -68,12 +69,12 @@ export class AyahController
     }
 
     @Delete('/:id')
-    async delete(@Res() response, @Param('id') id: string) {
+    async delete(@Res() response, @Param('id') id: string, @I18n() i18n: I18nContext) {
         try {
             const deletedAyah = await this.ayahService.deleteOne(id);
 
             return response.status(HttpStatus.OK).json({
-                message: 'Ayah deleted successfully',
+                message: await i18n.t('ayah.deleted_successfully'),
                 deletedAyah
             });
         }catch (err) {

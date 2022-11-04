@@ -1,0 +1,8 @@
+{
+  "created_successfully" : "Ayah has been created successfully",
+  "error_not_created" : "Error: Ayah not created!",
+  "updated_successfully" : "Ayah has been successfully updated",
+  "get_all_successfully" : "All ayat found successfully",
+  "found_one_successfully" : "Ayah found successfully",
+  "deleted_successfully" : "Ayah deleted successfully"
+}
