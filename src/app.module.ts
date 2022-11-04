@@ -5,10 +5,11 @@ import { MongooseModule } from "@nestjs/mongoose";
 import { AyahModule } from "./ayah/ayah.module"
 import { SeedsModule } from "./seeds.module"
 import { ConfigModule } from "@nestjs/config";
+import config from "./config";
 
 @Module({
   imports: [
-    MongooseModule.forRoot(process.env.MONGO_CONNECTION_STRING || 'mongodb://localhost:27017', { dbName: process.env.DATABASE_NAME ||'quran_app' }),
+    MongooseModule.forRoot(config.mongo_connection_string, { dbName: config.database_name }),
     AyahModule,
     SeedsModule,
     ConfigModule.forRoot()
