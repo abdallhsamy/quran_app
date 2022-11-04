@@ -4,5 +4,7 @@
   "updated_successfully" : "تم تحديث الآية بنجاح",
   "get_all_successfully" : "تم العثور على كل الآيات",
   "found_one_successfully" : "تم العثور على الآية",
-  "deleted_successfully" : "تم حذف الآية بنجاح"
+  "deleted_successfully" : "تم حذف الآية بنجاح",
+  "ayah_id_not_found": "لم يتم الثعور على الآية بالمعرف #{id}",
+  "no_ayat_found": "لا يوجد آيات"
 }

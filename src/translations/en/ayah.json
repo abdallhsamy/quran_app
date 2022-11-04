@@ -4,5 +4,7 @@
   "updated_successfully" : "Ayah has been successfully updated",
   "get_all_successfully" : "All ayat found successfully",
   "found_one_successfully" : "Ayah found successfully",
-  "deleted_successfully" : "Ayah deleted successfully"
+  "deleted_successfully" : "Ayah deleted successfully",
+  "ayah_id_not_found": "Ayah #${id} not found",
+  "no_ayat_found" : "no Ayat found!"
 }
