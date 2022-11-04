@@ -22,6 +22,16 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
+## Running the app using docker
+
+```bash
+docker build -t quran_app:v1 .
+```
+
+```bash
+docker run -p80:3000 quran_app:v1
+```
+
 ## Test
 
 ```bash
