@@ -13,12 +13,16 @@ export class AyahController
     async create(@Res() response, @Body() createAyahDto: CreateAyahDto, @I18n() i18n: I18nContext) {
         try {
             const ayah = await this.ayahService.create(createAyahDto);
-            return response.status(HttpStatus.CREATED).json({
+            return response
+                .status(HttpStatus.CREATED)
+                .json({
                 message: await i18n.t('ayah.created_successfully'),
                 data: ayah
             });
         } catch (err) {
-            return response.status(HttpStatus.BAD_REQUEST).json({
+            return response
+                .status(HttpStatus.BAD_REQUEST)
+                .json({
                 statusCode: 400,
                 message: await i18n.t('ayah.error_not_created'),
                 error: await i18n.t('general.bad_request')
@@ -31,12 +35,16 @@ export class AyahController
         try {
             const ayah = await this.ayahService.updateOne(ayahId, updateAyahDto);
 
-            return response.status(HttpStatus.OK).json({
+            return response
+                .status(HttpStatus.OK)
+                .json({
                 message: await i18n.t('ayah.updated_successfully'),
                 data: ayah
             });
         } catch (err) {
-            return response.status(err.status).json(err.response);
+            return response
+                .status(err.status)
+                .json(err.response);
         }
     }
 
@@ -45,12 +53,16 @@ export class AyahController
         try {
             const ayah = await this.ayahService.getAll();
 
-            return response.status(HttpStatus.OK).json({
+            return response
+                .status(HttpStatus.OK)
+                .json({
                 message: await i18n.t('ayah.get_all_successfully'),
                 data: ayah
             });
         } catch (err) {
-            return response.status(err.status).json(err.response);
+            return response
+                .status(err.status)
+                .json(err.response);
         }
     }
 
@@ -59,26 +71,34 @@ export class AyahController
         try {
             const ayah = await this.ayahService.getOne(id);
 
-            return response.status(HttpStatus.OK).json({
+            return response
+                .status(HttpStatus.OK)
+                .json({
                 message: await i18n.t('ayah.found_one_successfully'),
                 data: ayah
             });
         } catch (err) {
-            return response.status(err.status).json(err.response);
+            return response
+                .status(err.status)
+                .json(err.response);
         }
     }
 
     @Delete('/:id')
     async delete(@Res() response, @Param('id') id: string, @I18n() i18n: I18nContext) {
         try {
-            const deletedAyah = await this.ayahService.deleteOne(id);
+            const deleted = await this.ayahService.deleteOne(id);
 
-            return response.status(HttpStatus.OK).json({
-                message: await i18n.t('ayah.deleted_successfully'),
-                deletedAyah
-            });
+            return response
+                .status(HttpStatus.OK)
+                .json({
+                    deleted,
+                    message: await i18n.t('ayah.deleted_successfully')
+                });
         }catch (err) {
-            return response.status(err.status).json(err.response);
+            return response
+                .status(err.status)
+                .json(err.response);
         }
     }
 }
