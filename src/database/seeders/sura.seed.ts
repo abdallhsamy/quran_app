@@ -14,7 +14,6 @@ export class SuraSeed {
         try {
             const allSavedSuras = await this.suraService.getAll();
 
-            console.log(allSavedSuras.length)
             if (allSavedSuras.length > 0) {
                 for await (const sura of allSavedSuras) {
                     this.suraService.deleteOne(sura._id);
