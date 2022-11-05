@@ -1,0 +1,10 @@
+{
+  "created_successfully" : "تم إضافة السورة بنجاح",
+  "error_not_created" : "حدث خطأ : لم يتم إضافة السورة !",
+  "updated_successfully" : "تم تحديث السورة بنجاح",
+  "get_all_successfully" : "تم العثور على كل السور",
+  "found_one_successfully" : "تم العثور على السورة",
+  "deleted_successfully" : "تم حذف السورة بنجاح",
+  "ayah_id_not_found": "لم يتم الثعور على السورة بالمعرف #{id}",
+  "no_suras_found": "لا يوجد سورة"
+}

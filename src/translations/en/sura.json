@@ -1,0 +1,10 @@
+{
+  "created_successfully" : "Sura has been created successfully",
+  "error_not_created" : "Error: Sura not created!",
+  "updated_successfully" : "Sura has been successfully updated",
+  "get_all_successfully" : "All Suras found successfully",
+  "found_one_successfully" : "Sura found successfully",
+  "deleted_successfully" : "Sura deleted successfully",
+  "sura_id_not_found": "Sura #${id} not found",
+  "no_suras_found" : "no Suras found!"
+}

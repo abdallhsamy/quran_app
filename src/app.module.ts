@@ -8,11 +8,13 @@ import { ConfigModule } from "@nestjs/config";
 import config from "./config";
 import {AcceptLanguageResolver, I18nModule, QueryResolver} from "nestjs-i18n";
 import * as path from 'path';
+import { SuraModule } from "./sura/sura.module";
 
 @Module({
   imports: [
     MongooseModule.forRoot(config.mongo_connection_string, { dbName: config.database_name }),
     AyahModule,
+    SuraModule,
     SeedsModule,
     ConfigModule.forRoot(),
     I18nModule.forRoot({
